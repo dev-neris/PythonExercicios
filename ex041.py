@@ -1,23 +1,20 @@
 from datetime import date
+
 nasc = int(input('Ano de nascimento:'))
-atual = date.today().year
-idade = atual - nasc
+idade = date.today().year - nasc
+print(f'O atleta tem {idade} anos')
 
-print(f'Quem nasceu em {nasc} tem {idade}')
+if idade <= 9:
+    print('Classificação: MIRIM')
 
-if idade == 18:
-    print('Você precisa se alistar IMEDIATAMENTE!')
+elif idade <= 14:
+    print('Classificação: INFANTIL')
 
-elif idade < 18:
-    print('Seu alistamento ainda vai ocorrer.')
-    saldo = 18 - idade
-    print(f'Faltam {saldo} anos para você se alistar.')
-    ano = atual + saldo
-    print(f'Seu alistamento será em {ano}')
+elif idade <= 19:
+    print('Classificação: JÚNIOR')
 
-elif idade > 18:
-    print('Seu alistamento já passou.')
-    saldo = idade - 18
-    print(f'Seu alistamento foi há {saldo} anos')
-    ano = atual - saldo
-    print(f'Seu alistamento foi em {ano}')
+elif idade <= 25:
+    print('Classificação: SÊNIOR')
+
+elif idade > 25:
+    print('Classificação: MASTER')

@@ -1,51 +1,30 @@
-from random import randint
-from time import sleep
+print(f'{" Lojas Guanabara ":=^40}')
+preco = float(input('Preço das compras:'))
+print('''FORMAS DE PAGAMENTO:
+[ 1 ] á vista dinheiro/cheque
+[ 2 ] á vista no cartão
+[ 3 ] 2x no cartão
+[ 4 ] 3x ou mais no cartão''')
 
-print('''Suas opções:
-[ 0 ] PEDRA
-[ 1 ] PAPEL
-[ 2 ] TESOURA''')
+opcao = int(input('Qual sua opção?'))
+if opcao == 1:
+    avista = preco - (preco * 10 / 100)
+    print(f'Sua compra de {preco:.2f} vai custar {avista:.2f} no final.')
 
-jogador = int(input('Qual é a sua jogada?'))
-print('JO')
-sleep(1)
-print('KEN')
-sleep(1)
-print('PO!!!')
-sleep(1)
-print('-=' * 11)
-lista = ['PEDRA', 'PAPEL', 'TESOURA']
-computador = randint(0, 2)
-print(f'Computador jogou {lista[computador]}')
-print(f'Jogador jogou {lista[jogador]}')
-print('-=' * 11)
+elif opcao == 2:
+    avista = preco - (preco * 5 / 100)
+    print(f'À vista no cartão, sua compra de {preco:.2f} será de {avista:.2f}')
 
-if computador == 0: #computador jogou PEDRA
-    if jogador == 0:
-        print('EMPATE')
-    elif jogador == 1:
-        print('JOGADOR VENCE')
-    elif jogador == 2:
-        print('COMPUTADOR VENCE')
-    else:
-        print('OPÇÃO INVÁLIDA!')
+elif opcao == 3:
+    valor = preco / 2
+    print(f'Sua compra de {preco:.2f} será parcelada em 2x de {valor:.2f}, sem juros.')
 
-elif computador == 1: #computador jogou PAPEL
-    if jogador == 0:
-        print('COMPUTADOR VENCE')
-    elif jogador == 1:
-        print('EMPATE')
-    elif jogador == 2:
-        print('JOGADOR VENCE')
-    else:
-        print('OPÇÃO INVÁLIDA!')
+elif opcao == 4:
+    parcelas = int(input('Quantas parcelas?'))
+    juros = preco + (preco * 20 / 100)
+    valor = juros / parcelas
+    print(f'Sua compra será parcelada em {parcelas}x de {valor:.2f} COM JUROS \n Sua compra de {preco:.2f} vai custar R${juros:.2f} no final.')
 
-elif computador == 2: #computador jogou TESOURA
-    if jogador == 0:
-        print('JOGADOR VENCE')
-    elif jogador == 1:
-        print('COMPUTADOR VENCE')
-    elif jogador == 2:
-        print('EMPATE')
-    else:
-        print('OPÇÃO INVÁLIDA')
+else:
+    valor = preco
+    print('OPÇÃO INVÁLIDA. tente novamente.')
